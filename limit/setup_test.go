@@ -1,10 +1,9 @@
 package limit
 
 import (
+	"github.com/coredns/caddy"
 	"strings"
 	"testing"
-
-	"github.com/caddyserver/caddy"
 )
 
 // Errors that come from our plugin should start with this string
@@ -12,9 +11,9 @@ const errPrefix = "plugin/limit:"
 
 func TestSetuplimit(t *testing.T) {
 	tests := []struct {
-		input              string
-		shouldErr          bool
-		expectedRecords       int
+		input           string
+		shouldErr       bool
+		expectedRecords int
 	}{
 		{`limit`, true, -1},
 		{`limit "0"`, true, -1},
